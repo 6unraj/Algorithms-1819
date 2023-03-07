@@ -1,3 +1,5 @@
+import timeit
+
 def find_intersection(lines):
     """
     Find the point of intersection (if any) between any two lines in the given list.
@@ -18,9 +20,12 @@ def find_intersection(lines):
     return None
 
 # Example usage
-lines = [(2, 5), (0, 10)]
+lines = [(1, 7), (-1, 8), (2, -1)]
 intersection = find_intersection(lines)
 if intersection is not None:
     print("The lines intersect at:", intersection)
 else:
     print("The lines do not intersect.")
+
+t = timeit.timeit(lambda: find_intersection(lines), number=100000)
+print("Execution time:", round(t, 5), "seconds")
